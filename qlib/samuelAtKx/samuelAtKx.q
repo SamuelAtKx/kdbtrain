@@ -4,33 +4,13 @@ d) module
  samuelAtKx to set up a samuelAtKx library. 
  q).import.module`samuelAtKx
 
-.samuelAtKx.PI: 22 % 7;
+.samuelAtKx.basicZ0: { sqrt[-2 * log x] * cos 6.2857142857142857142857142857143 * y };
+.samuelAtKx.basicZ1: { sqrt[-2 * log x] * sin 6.2857142857142857142857142857143 * y };
 
-/ make sure x <= y
-.samuelAtKx.random: {[x;y;n] x + n?y-x };
+.samuelAtKx.polarRand: { if [0 < diff: x - count valInd: where and[0 < s; 1 > s: (u*u: -1 + x?2.0) + v*v: -1 + x?2.0]; :(u valInd; v valInd) ,' .samuelAtKx.polarRand diff]; (u valInd; v valInd) };
+.samuelAtKx.polarZ: { x * sqrt (-2 * log s) % s:(x*x)+y*y };
 
-.samuelAtKx.theta: { 2 * .samuelAtKx.PI * x };
-.samuelAtKx.r2: { -2 * log x };
-
-.samuelAtKx.basicRand: .samuelAtKx.random[0.0; 1.0; ];
-.samuelAtKx.basicZ0: { sqrt[.samuelAtKx.r2 x] * cos .samuelAtKx.theta y };
-.samuelAtKx.basicZ1: { sqrt[.samuelAtKx.r2 x] * sin .samuelAtKx.theta y };
-
-.samuelAtKx.polarRand: {
-    u: .samuelAtKx.random[-1.0;1.0;x];
-    v: .samuelAtKx.random[-1.0;1.0;x];
-    ind: where 1 > c & 0 < c:u*u + v*v;     / 0 < s < 1
-
-    if [0 < diff: x - count ind; 
-        :(u ind; v ind) ,' .samuelAtKx.polarRand diff
-    ];
-    (u ind; v ind)
- };
-
-.samuelAtKx.polarZ: { x * sqrt .samuelAtKx.r2[s] % s:(x*x)+y*y };
-
-
-.samuelAtKx.basic: { .samuelAtKx.basicZ0[.samuelAtKx.basicRand x; .samuelAtKx.basicRand x] };
+.samuelAtKx.basic: { .samuelAtKx.basicZ1[x?1.0; x?1.0] };
 
 d) function
  samuelAtKx
@@ -40,6 +20,7 @@ d) function
 
 
 .samuelAtKx.polar: { .[.samuelAtKx.polarZ; .samuelAtKx.polarRand x] };
+
 d) function
  samuelAtKx
  .samuelAtKx.polar
