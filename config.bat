@@ -5,6 +5,7 @@ SET PATH=%PATH%;C:\ProgrammingLanguage\R\R-4.2.2\bin
 SET PATH=%PATH%;C:\ProgrammingLanguage\R\R-4.2.2\bin\x64
 SET PATH=%PATH%;C:\IDE\cmder
 
+SET R_HOME=C:\ProgrammingLanguage\R\R-4.2.2
 SET JAVA_HOME=C:\ProgrammingLanguage\jdk\jdk-19.0.1\bin
 SET QHOME=C:\ProgrammingLanguage\q
 SET QLIC=C:\ProgrammingLanguage\q
