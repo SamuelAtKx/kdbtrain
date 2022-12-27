@@ -1,3 +1,6 @@
+.import.module`random
+.import.module`rlang
+
 
 d) module
  samuelAtKx
@@ -41,9 +44,6 @@ d) function
  generate random normal distributed numbers using polar method
  q) .samuelAtKx.polar 10
 
-
-.import.require`random
-
 .samuelAtKx.monteCarlo.sde0: {[x0; a; b; dt; pathNum]
     / x0: pathNum#x0;
     / dwt: pathNum cut .random.normal0.basic pathNum*count dt;
@@ -58,15 +58,10 @@ d) function
  can be displayed by the following: q) choice: raze x sampleSize? nrow: count data; r) matplot(t(as.data.frame(matrix(`choice, nrow=`sampleSize, byrow=TRUE))), type="l");
  q) .samuelAtKx.monteCarlo.sde0[100; 0; 1f; 0.1 * til 11; 100]
 
-/ .import.require`rlang
+.samuelAtKx.monteCarlo.plot: {[data; sampleSize] .samuelAtKx.monteCarlo.choice:: raze data sampleSize?count data; "r" "matplot(t(as.data.frame(matrix(`.samuelAtKx.monteCarlo.choice, nrow=`", string[sampleSize], ", byrow=TRUE))), type=\"l\")"};
 
-/ .samuelAtKx.monteCarlo.plot: {[data; sampleSize]
-/     choice: raze x sampleSize? nrow: count data;
-/     r) matplot(t(as.data.frame(matrix(`choice, nrow=`sampleSize, byrow=TRUE))), type="l");
-/  };
-
-/ d) function
-/  samuelAtKx
-/  .samuelAtKx.monteCarlo.plot
-/  plot matrix of sample data
-/  q) .samuelAtKx.monteCarlo.plot[data; 20]
+d) function
+ samuelAtKx
+ .samuelAtKx.monteCarlo.plot
+ plot matrix of sample data
+ q) .samuelAtKx.monteCarlo.plot[data; 20]
