@@ -1,1 +1,6 @@
-{"repositories":[{"name":"samuelAtKx","path":"..\\..\\"}]}
+{
+	"repositories":[
+		{"name":"samuelAtKx", "path":"..\\..\\"},
+		{"name":"random", "path":"..\\..\\compfi"}
+	]
+}
